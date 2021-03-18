@@ -22,5 +22,35 @@ describe "#two_sum" do
     it "should shovel in smaller elements first" do
         expect(two_sum([-1, 0 , 2, -2 ,1])).to_not eq([[2, 3], [0,4]])
     end 
+
+    
 end 
+
+describe "#my_transpose" do 
+    subject(:arr) {[
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8]
+  ]}
+    let(:arr1) {
+    [[0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8]]}
+    it "transposes a square 2D array and returns a new array where row are converted to columns" do
+        expect(my_transpose(arr)).to eq(arr1)
+    end
+
+    it "does not call .transpose method" do
+        expect(arr).to_not receive(:transpose)
+        my_transpose(arr)
+    end
+end
+
+describe "#stock_picker"  do
+    subject(:arr) {[4.00, 5.25, 3.50, 6.60, 2.20]}
+
+    it "returns the most profitable pair of days" do
+         expect(stock_picker(arr)).to eq([3,4])
+    end
+end
 
