@@ -24,24 +24,16 @@ class TowersofHanoi
     end 
 
 
-    def move_piece(start_pos, end_pos)
-
-
+    def move
+        
+       
     end 
 
 
-    def valid_pos?(pos)
-
-
-    end 
 
     def won?
-
-
+        return true if @grid[2] == [2,1,0]
+        false
     end 
-
-
-
-
 
 end 

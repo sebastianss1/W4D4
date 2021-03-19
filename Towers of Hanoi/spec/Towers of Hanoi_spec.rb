@@ -18,29 +18,42 @@ describe TowersofHanoi do
         end 
     end 
 
-    describe "#moves" do
-    #call on instance of TOH
-    #should expect 2 positions (arrays)
-    #input from user for start / end pos (arrays) & convert to integer/ array
-    #pop from starting position and push to end position if valid_pos 
+    describe "#move" do
+        it "prompts the user for a position" do
+            expect(tower.moves).to eq([[2,1,0],[0],[]])
+        end
+    end
+    # it "receives a start and end postion" do
+    #     expect(tower.moves).to receive(,)
+    # end
+
+    # call on instance of TOH
+    # should expect 2 positions (arrays)
+    # input from user for start / end pos (arrays) & convert to integer/ array
+    # pop from starting position and push to end position if valid_pos 
 
 
-    #raise error if arr.last < arr[start_pos].last
-    end 
-
-    describe "#valid_pos?" do
+    # raise error if arr.last < arr[start_pos].last
+    
 
 
-    end 
+    describe "#won?" do
 
+        context "when the last array is the same as first" do 
+            let(:winning_tower) do 
+                object = TowersofHanoi.new
+                object.grid[2] = [2,1,0]
+                object
+            end
 
-    describe "#won" do
-        it "returns true if the last array equals to where the game started" do
-            expect(tower.grid[2]).to eq([2, 1, 0])
-        end 
+            it "returns true" do
+                expect(winning_tower.won?).to be true
+            end 
+        end
 
         it "returns false otherwise" do
-            expect(tower.grid[2]).to_not eq([0, 1, 2])
+
+            expect(tower.won?).to be false
         end 
     end 
 
